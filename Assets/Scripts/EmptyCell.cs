@@ -7,6 +7,12 @@ public class EmptyCell : MonoBehaviour
     public Button button;
     public TMP_Text buttonText;
 
+    private GameController gameController;
+
+    public void SetGameControllerRef(GameController gameController)
+    {
+        this.gameController = gameController;
+    }
 
     private void Start()
     {
@@ -15,7 +21,8 @@ public class EmptyCell : MonoBehaviour
 
     private void OnButtonClick()
     {
-        buttonText.text = "X";
+        buttonText.text = gameController.GetPlayerSide();
         button.interactable = false;
+        gameController.EndTurn();
     }
 }
