@@ -212,6 +212,5 @@ public class GameController : MonoBehaviour
             buttonList[i].GetComponentInParent<Button>().interactable = toggle;
         }
     }
-
-    
+ 
 }
