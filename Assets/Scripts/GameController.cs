@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     private int moveCount;
 
     private int playerXScore = 0;
+    public int PlayerXScore { get=>playerXScore;}
     private int[] playerXHighScores;
     private int NumberOfHighScores;
     HighScoreClass highScoreClass;
@@ -36,7 +37,7 @@ public class GameController : MonoBehaviour
         GetSavedHighScoreData();
         playerSide = "X";
         moveCount = 0;
-        SetGameControllerRefOnButtons();
+        //SetGameControllerRefOnButtons();
     }
 
     private void GetSavedHighScoreData()
@@ -147,7 +148,8 @@ public class GameController : MonoBehaviour
             Debug.Log("Game Won by: " + playerSide);
             if(playerSide == "X")
             {
-                playerXScore++;
+                //playerXScore++;
+                IncrementPlayerScore();
             }
             else
             {
@@ -157,6 +159,11 @@ public class GameController : MonoBehaviour
         }
 
         RestartGame();
+    }
+
+    public void IncrementPlayerScore()
+    {
+        playerXScore++;
     }
 
     private void UpdateLeaderBoard()
